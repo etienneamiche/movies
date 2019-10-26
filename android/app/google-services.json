@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "745399819383",
+    "firebase_url": "https://movies-bc0f5.firebaseio.com",
+    "project_id": "movies-bc0f5",
+    "storage_bucket": "movies-bc0f5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745399819383:android:fb656685fc05278f577a72",
+        "android_client_info": {
+          "package_name": "com.etienneesiea4amobile.movies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745399819383-fb4s001ecranbk1im7qmceektec7qudp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ3HYIgvyVhsZ9HZmXTtqaDWxsU_mlH2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745399819383-fb4s001ecranbk1im7qmceektec7qudp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
