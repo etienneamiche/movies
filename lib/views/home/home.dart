@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/services/auth.dart';
+import 'package:movies/ui/background.dart';
+
 class Home extends StatelessWidget {
 
   final AuthService _auth = AuthService();
@@ -8,7 +10,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text('Home'),
           backgroundColor: Colors.blue,
@@ -23,7 +25,12 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-      ),
+        body:Stack(
+          children: <Widget>[
+            Background()
+          ]
+        )
+      )
     );
   }
 }
