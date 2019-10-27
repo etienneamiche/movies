@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/services/auth.dart';
 import 'package:movies/ui/background.dart';
-
+import 'package:movies/views/movie/top_rated_movie_list.dart';
 class Home extends StatelessWidget {
 
   final AuthService _auth = AuthService();
@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text('Home'),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.indigo,
           elevation: 0.0,
           actions: <Widget>[
             FlatButton.icon(
@@ -27,7 +27,8 @@ class Home extends StatelessWidget {
         ),
         body:Stack(
           children: <Widget>[
-            Background()
+            Background(),
+            TopRatedMovieList(),
           ]
         )
       )
