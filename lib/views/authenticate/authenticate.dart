@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/views/authenticate/sign_in.dart';
 
 class Authenticate extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class Authenticate extends StatefulWidget {
    @override
    Widget build(BuildContext context) {
     return Container(
-      child: Text("authenticate"),
+      child: SignIn(),
     );
   }
 }
