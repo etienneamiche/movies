@@ -26,43 +26,46 @@ class TopRatedMovieListState extends State<TopRatedMovieList> {
   Widget build(BuildContext context) {
     getData();
 
-    return new Container(
+    return Container(
       
-      child: new Padding(
+      child:  Padding(
         padding: const EdgeInsets.all(16.0),
-        child: new Column(
+        child:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new MovieTitle(Colors.black),
-            new Expanded(
-              child: new ListView.builder(
-                  
-                  itemCount: movies == null ? 0 : movies.length,
-                  itemBuilder: (context, i) {
-                    return new FlatButton(
-                      child: new MovieCell(movies, i),
-                      padding: const EdgeInsets.all(0.0),
-                      onPressed: () {
-                        Navigator.push(context,
-                            new MaterialPageRoute(builder: (context) {
-                          return new MovieDetail(movies[i]);
-                        }));
-                      },
-                      color: Colors.transparent,
-                    );
-                  }),
-            )
+             ListTitle(Colors.black),
+             Expanded(
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: movies == null ? 0 : movies.length,
+                    itemBuilder: (context, i) {
+                      return FlatButton(
+                        child: MovieCell(movies, i),
+                        padding: const EdgeInsets.all(0.0),
+                        onPressed: () {
+                          Navigator.push(context,
+                               MaterialPageRoute(builder: (context) {
+                                return MovieDetail(movies[i]);
+                          }));
+                        },
+                        color: Colors.transparent,
+                      );
+                    }
+                  )
+              )
+            
           ],
+
         ),
       ),
     );
   }
 }
 
-class MovieTitle extends StatelessWidget {
+class ListTitle extends StatelessWidget {
   final Color mainColor;
 
-  MovieTitle(this.mainColor);
+  ListTitle(this.mainColor);
 
   @override
   Widget build(BuildContext context) {
@@ -92,18 +95,16 @@ class MovieCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Column(
       children: <Widget>[
-        new Row(
-          children: <Widget>[
             new Padding(
               padding: const EdgeInsets.all(0.0),
               child: new Container(
                 margin: const EdgeInsets.all(16.0),
                 child: new Container(
                   width: 70.0,
-                  height: 70.0,
+                  height: 100.0,
                 ),
                 decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.circular(10.0),
+                  borderRadius: new BorderRadius.circular(1.0),
                   color: Colors.grey,
                   image: new DecorationImage(
                       image: new NetworkImage(
@@ -118,40 +119,19 @@ class MovieCell extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-            new Expanded(
-                child: new Container(
-              margin: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
-              child: new Column(
-                children: [
-                  new Text(
-                    movies[i]['title'],
-                    style: new TextStyle(
-                        fontSize: 20.0,
-                        fontFamily: 'Arvo',
-                        fontWeight: FontWeight.bold,
-                        color: mainColor
-                      ),
-                  ),
-                  new Padding(padding: const EdgeInsets.all(2.0)),
-                  new Text(
-                    movies[i]['overview'],
-                    maxLines: 3,
-                    style: new TextStyle(
-                        color: const Color(0xff8785A4), fontFamily: 'Arvo'),
-                  )
-                ],
-                crossAxisAlignment: CrossAxisAlignment.start,
-              ),
-            )),
-          ],
-        ),
-        new Container(
-          width: 300.0,
-          height: 0.5,
-          color: const Color(0xD2D2E1ff),
-          margin: const EdgeInsets.all(16.0),
-        )
+            ),  
+            SizedBox(
+              width: 100,
+              child: Center(
+                child:Text(
+                movies[i]['title'],
+                textAlign: TextAlign.center,
+                style: new TextStyle(
+                    color: Colors.black, fontFamily: 'Arvo',fontSize: 18),
+                ),
+              )
+            )
+             
       ],
     );
   }
