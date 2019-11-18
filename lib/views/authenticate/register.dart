@@ -27,7 +27,7 @@ class _RegisterState extends State<Register> {
       resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         elevation: 0.0,
         title: Text('Register'),
         actions: <Widget>[
@@ -85,7 +85,7 @@ class _RegisterState extends State<Register> {
                     shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(30.0),
                       ),
-                    color: Colors.blue,
+                    color: Colors.indigo,
                     child: Text(
                       'Register',
                       style: TextStyle(color: Colors.white),

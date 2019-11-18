@@ -27,7 +27,7 @@ class _SignInState extends State<SignIn> {
       resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.indigo,
         elevation: 0.0,
         title: Text('Sign in'),
         actions: <Widget>[
@@ -83,7 +83,7 @@ class _SignInState extends State<SignIn> {
                   SizedBox(height: 20.0),
                   RaisedButton(
                     shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                    color: Colors.blue,
+                    color: Colors.indigo,
                     child: Text('Sign In',style: TextStyle(color: Colors.white)),
                     onPressed: () async {
                         if(_formKey.currentState.validate()){

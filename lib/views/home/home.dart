@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movies/services/auth.dart';
 import 'package:movies/ui/background.dart';
+import 'package:movies/views/home/home_list.dart';
+
+
 
 class Home extends StatelessWidget {
 
@@ -8,12 +11,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Container(
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           title: Text('Home'),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.indigo,
           elevation: 0.0,
           actions: <Widget>[
             FlatButton.icon(
@@ -27,7 +32,8 @@ class Home extends StatelessWidget {
         ),
         body:Stack(
           children: <Widget>[
-            Background()
+            Background(),
+            HomeList(),
           ]
         )
       )
