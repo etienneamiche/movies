@@ -1,14 +1,24 @@
+
 import 'package:flutter/material.dart';
+import 'package:movies/models/user.dart';
 import 'dart:ui' as ui;
+import 'package:movies/services/database.dart';
+import 'package:provider/provider.dart';
 
 class MovieDetail extends StatelessWidget {
   final movie;
+  
   var image_url = 'https://image.tmdb.org/t/p/w500/';
   MovieDetail(this.movie);
   Color mainColor = const Color(0xff3C3261);
 
+
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+    _addMovieToUserList(){
+      
+    }
     return new Scaffold(
       body: new Stack(fit: StackFit.expand, children: [
         new Image.network(
@@ -72,48 +82,26 @@ class MovieDetail extends StatelessWidget {
                 new Padding(padding: const EdgeInsets.all(10.0)),
                 new Row(
                   children: <Widget>[
-                    new Expanded(
-                        child: new Container(
-                      width: 150.0,
-                      height: 60.0,
-                      alignment: Alignment.center,
-                      child: new Text(
-                        'Rate Movie',
-                        style: new TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Arvo',
-                            fontSize: 20.0),
-                      ),
-                      decoration: new BoxDecoration(
-                          borderRadius: new BorderRadius.circular(10.0),
-                          color: const Color(0xaa3C3261)),
-                    )),
-                    new Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: new Container(
-                        padding: const EdgeInsets.all(16.0),
-                        alignment: Alignment.center,
-                        child: new Icon(
-                          Icons.share,
-                          color: Colors.white,
-                        ),
-                        decoration: new BoxDecoration(
-                            borderRadius: new BorderRadius.circular(10.0),
-                            color: const Color(0xaa3C3261)),
-                      ),
-                    ),
+                    
+                    
                     new Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: new Container(
+                        child:FlatButton(
+                          onPressed:() async {
+                            await DatabaseServices(uid:user.uid).addMovieToUserList(movie);
+                          },
+                          child:  new Container(
                           padding: const EdgeInsets.all(16.0),
                           alignment: Alignment.center,
                           child: new Icon(
                             Icons.bookmark,
                             color: Colors.white,
                           ),
+                          
                           decoration: new BoxDecoration(
                               borderRadius: new BorderRadius.circular(10.0),
                               color: const Color(0xaa3C3261)),
+                        )
                         )
                     ),
                   ],
@@ -125,4 +113,6 @@ class MovieDetail extends StatelessWidget {
       ]),
     );
   }
+                          
+                            
 }

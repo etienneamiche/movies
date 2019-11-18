@@ -41,6 +41,7 @@ class MovieCell extends StatelessWidget {
               child: Center(
                 child:Text(
                 movies[i]['title'],
+                maxLines: 2,
                 textAlign: TextAlign.center,
                 style: new TextStyle(
                     color: Colors.black, fontFamily: 'Arvo',fontSize: 18),

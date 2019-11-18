@@ -9,7 +9,19 @@ const apiKey = "0ba207770180312f194f997f6921ca29";
 // get top rated movies 
 
 Future<Map> getTopRated() async {
-  var url = 'http://api.themoviedb.org/3/discover/movie?api_key=$apiKey';
+  var url = 'http://api.themoviedb.org/3/movie/top_rated?api_key=$apiKey';
+  var response = await http.get(url);
+  return json.decode(response.body);
+}
+
+Future<Map> getUpcoming() async {
+  var url = 'https://api.themoviedb.org/3/movie/upcoming?api_key=$apiKey';
+  var response = await http.get(url);
+  return json.decode(response.body);
+}
+
+Future<Map> getNowPlaying() async {
+  var url = 'https://api.themoviedb.org/3/movie/now_playing?api_key=$apiKey';
   var response = await http.get(url);
   return json.decode(response.body);
 }

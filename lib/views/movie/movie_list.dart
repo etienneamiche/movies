@@ -1,44 +1,22 @@
-
 import 'package:flutter/material.dart';
-import 'package:movies/services/tmdb.dart';
-
-import 'package:movies/views/movie/movie_detail.dart';
-import 'package:movies/views/movie/movie_cell.dart';
 import 'package:movies/views/movie/list_title.dart';
+import 'movie_cell.dart';
+import 'movie_detail.dart';
 
-
-
-class TopRatedMovieList extends StatefulWidget {
-  @override
-  TopRatedMovieListState createState() {
-    return new TopRatedMovieListState();
-  }
-}
-
-class TopRatedMovieListState extends State<TopRatedMovieList> {
+class MovieList extends StatelessWidget {
   var movies;
-  Color mainColor = Colors.black;
-
-  void getData() async {
-    var data = await getTopRated();
-
-    setState(() {
-      movies = data['results'];
-    });
-  }
+  var name;
+  MovieList(this.movies,this.name);
 
   @override
   Widget build(BuildContext context) {
-    getData();
-
     return Container(
-      
       child:  Padding(
         padding: const EdgeInsets.all(16.0),
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-             ListTitle(Colors.black),
+             ListTitle(Colors.black, name),
              Expanded(
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -66,5 +44,3 @@ class TopRatedMovieListState extends State<TopRatedMovieList> {
     );
   }
 }
-
-
