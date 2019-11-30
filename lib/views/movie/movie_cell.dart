@@ -14,13 +14,11 @@ class MovieCell extends StatelessWidget {
             new Padding(
               padding: const EdgeInsets.all(0.0),
               child: new Container(
-                margin: const EdgeInsets.all(16.0),
-                child: new Container(
-                  width: 70.0,
-                  height: 100.0,
-                ),
+               
+                width: 110.0,
+                height: 150.0,
                 decoration: new BoxDecoration(
-                  borderRadius: new BorderRadius.circular(1.0),
+                  borderRadius: new BorderRadius.circular(5.0),
                   color: Colors.grey,
                   image: new DecorationImage(
                       image: new NetworkImage(
@@ -35,18 +33,6 @@ class MovieCell extends StatelessWidget {
                   ],
                 ),
               ),
-            ),  
-            SizedBox(
-              width: 100,
-              child: Center(
-                child:Text(
-                movies[i]['title'],
-                maxLines: 2,
-                textAlign: TextAlign.center,
-                style: new TextStyle(
-                    color: Colors.black, fontFamily: 'Arvo',fontSize: 18),
-                ),
-              )
             )
              
       ],

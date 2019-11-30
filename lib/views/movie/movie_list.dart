@@ -16,15 +16,15 @@ class MovieList extends StatelessWidget {
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-             ListTitle(Colors.black, name),
+             ListTitle(Colors.white, name),
              Expanded(
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
+                child: GridView.builder(
+                    gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                     itemCount: movies == null ? 0 : movies.length,
                     itemBuilder: (context, i) {
                       return FlatButton(
                         child: MovieCell(movies, i),
-                        padding: const EdgeInsets.all(0.0),
+                      
                         onPressed: () {
                           Navigator.push(context,
                                MaterialPageRoute(builder: (context) {

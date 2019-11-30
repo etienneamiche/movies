@@ -13,7 +13,7 @@ class UpComingMovieList extends StatefulWidget {
 class UpComingMovieListState extends State<UpComingMovieList> {
   var allList;
   var movies;
-  Color mainColor = Colors.black;
+
 
   void _getUpcoming() async {
     var data = await getUpcoming();
