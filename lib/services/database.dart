@@ -14,12 +14,19 @@ class DatabaseServices {
     return await movieCollection.document(uid).setData({});
   }
 
+  Future deleteMovieToUserList(title) async {
+ 
+    return await movieCollection.document(uid).collection("list").document(title).delete();
+      
+        
+  }
+
   Future addMovieToUserList(movie) async {
     Movie m = new Movie(title: movie['title'],
                         overview: movie['overview'],
                         poster_path:movie['poster_path']);
                         print("movie added\n");
-    return await movieCollection.document(uid).collection("list").add({'title':m.title,
+    return await movieCollection.document(uid).collection("list").document(m.title).setData({'title':m.title,
                                                                         'overview':m.overview,
                                                                         'poster_path':m.poster_path});
   }

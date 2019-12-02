@@ -87,7 +87,8 @@ class MyMovieListState extends State<MyMovieList> {
                             )),
                              FlatButton(
                                 onPressed:() async {
-                                  //await DatabaseServices(uid:user.uid).addMovieToUserList(userMovie[i]);
+                                  await DatabaseServices(uid:user.uid).deleteMovieToUserList(userMovie[i].title);
+                                  print("doument deleted");
                                 },
                                 child:  new Container(
                                 padding: const EdgeInsets.all(16.0),
@@ -103,8 +104,8 @@ class MyMovieListState extends State<MyMovieList> {
                         )
                       ]);
                   });
-                }else{
-                  return ListTitle(Colors.black,"you have no movie yet");
+                } else {
+                  return Text("You have no movies yet");
                 }
             },
       
