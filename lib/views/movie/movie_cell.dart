@@ -3,17 +3,16 @@ import 'package:flutter/material.dart';
 class MovieCell extends StatelessWidget {
   final movies;
   final i;
-  Color mainColor = Colors.black;
-  var image_url = 'https://image.tmdb.org/t/p/w500/';
+  final mainColor = Colors.black;
+  final image_url = 'https://image.tmdb.org/t/p/w500/';
   MovieCell(this.movies, this.i);
 
   @override
   Widget build(BuildContext context) {
     return new Column(
       children: <Widget>[
-            new Padding(
-              padding: const EdgeInsets.all(0.0),
-              child: new Container(
+          
+            Container(
                
                 width: 110.0,
                 height: 150.0,
@@ -33,7 +32,7 @@ class MovieCell extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+         
              
       ],
     );

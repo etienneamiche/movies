@@ -104,6 +104,8 @@ class MyMovieListState extends State<MyMovieList> {
                         )
                       ]);
                   });
+                } else {
+                  return Text("You have no movies yet");
                 }
             },
       
