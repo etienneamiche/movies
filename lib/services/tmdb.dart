@@ -14,7 +14,7 @@ Future<Map> getTopRated() async {
   return json.decode(response.body);
 }
 
-Future<Map> getUpcoming() async {
+Future<Map> getUpcomming() async {
   var url = 'https://api.themoviedb.org/3/movie/upcoming?api_key=$apiKey';
   var response = await http.get(url);
   return json.decode(response.body);
