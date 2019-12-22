@@ -1,36 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:movies/services/tmdb.dart';
 import 'package:movies/ui/background.dart';
+import 'package:movies/views/movie/movie_list.dart';
 import 'package:movies/views/movie/my_movie_list.dart';
-import 'package:movies/views/movie/now_playing_movie_list.dart';
-import 'package:movies/views/movie/top_rated_movie_list.dart';
-import 'package:movies/views/movie/upcoming_movie_list.dart';
 import 'package:movies/services/auth.dart';
+
 class HomePage extends StatefulWidget {
- @override
- State<StatefulWidget> createState() {
-    return _HomePageState();
+ @override State<StatefulWidget> createState() {
+   
+    return new _HomePageState();
   }
+
+
 }
 class _HomePageState extends State<HomePage> {
+
   
   final AuthService _auth = AuthService();
-
   int _currentIndex = 0;
-  final List<Widget> _children = [
-    NowPlayingMovieList(),
-    TopRatedMovieList(),
-    UpComingMovieList(),
+  
+  var _nowPlayingmovies;
+  var _topRatedmovies;
+  var _upCommingmovies;
+
+  void _fetchData() async {
+    var data1 = await getNowPlaying();
+    var data2 = await getTopRated();
+    var data3 = await getUpcomming();
+
+    setState(() {
+      _nowPlayingmovies = data1['results'];
+      _topRatedmovies = data2['results'];
+      _upCommingmovies = data3['results'];
+    });
+  }
+
+    
+ 
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+   });
+ }
+
+ @override
+ 
+ Widget build(BuildContext context) {
+   
+  _fetchData();
+  List<Widget> _children = [
+    MovieList(movies:_nowPlayingmovies, name:"Now Playing"),
+    MovieList(movies:_topRatedmovies,name: "Top Rated"),
+    MovieList(movies:_upCommingmovies,name:"Up Comming"),
     MyMovieList()
   ];
 
-  void onTabTapped(int index) {
-   setState(() {
-     _currentIndex = index;
-   });
- }
- @override
- Widget build(BuildContext context) {
-   return Scaffold(
+ 
+  return Scaffold(
     appBar: AppBar(
           title: Text('Home'),
           backgroundColor: Colors.indigo,
