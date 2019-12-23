@@ -7,6 +7,7 @@ import 'movie_detail.dart';
 class MovieList extends StatelessWidget {
   
   final Color mainColor = Colors.black;
+
   final name;
   final movies;
   MovieList({this.movies,this.name}); 

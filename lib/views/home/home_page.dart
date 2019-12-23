@@ -6,6 +6,7 @@ import 'package:movies/views/movie/my_movie_list.dart';
 import 'package:movies/services/auth.dart';
 import 'package:movies/views/movie/search_movie.dart';
 
+
 class HomePage extends StatefulWidget {
  @override State<StatefulWidget> createState() {
    
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+
     
  
   void onTabTapped(int index) {
@@ -49,14 +51,13 @@ class _HomePageState extends State<HomePage> {
  Widget build(BuildContext context) {
    
   _fetchData();
-
-  
   List<Widget> _children = [
     MovieList(movies:_nowPlayingmovies, name:"Now Playing"),
     MovieList(movies:_topRatedmovies,name: "Top Rated"),
     MovieList(movies:_upCommingmovies,name:"Up Comming"),
     MyMovieList(),
     SearchMovie(),
+
   ];
 
  
