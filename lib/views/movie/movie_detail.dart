@@ -16,9 +16,8 @@ class MovieDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-    _addMovieToUserList(){
-      
-    }
+
+    
     return new Scaffold(
       body: new Stack(fit: StackFit.expand, children: [
         new Image.network(

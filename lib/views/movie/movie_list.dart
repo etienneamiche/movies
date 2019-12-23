@@ -7,9 +7,10 @@ import 'movie_detail.dart';
 class MovieList extends StatelessWidget {
   
   final Color mainColor = Colors.black;
-  var name;
-  var movies;
-  MovieList({Key key, this.movies,this.name}); 
+
+  final name;
+  final movies;
+  MovieList({this.movies,this.name}); 
 
   @override
   Widget build(BuildContext context) {

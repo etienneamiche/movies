@@ -4,6 +4,8 @@ import 'package:movies/ui/background.dart';
 import 'package:movies/views/movie/movie_list.dart';
 import 'package:movies/views/movie/my_movie_list.dart';
 import 'package:movies/services/auth.dart';
+import 'package:movies/views/movie/search_movie.dart';
+
 
 class HomePage extends StatefulWidget {
  @override State<StatefulWidget> createState() {
@@ -26,14 +28,15 @@ class _HomePageState extends State<HomePage> {
   void _fetchData() async {
     var data1 = await getNowPlaying();
     var data2 = await getTopRated();
-    var data3 = await getUpcomming();
+    var data3 = await getUpcoming();
 
     setState(() {
       _nowPlayingmovies = data1['results'];
-      _topRatedmovies = data2['results'];
-      _upCommingmovies = data3['results'];
+      _topRatedmovies   = data2['results'];
+      _upCommingmovies  = data3['results'];
     });
   }
+
 
     
  
@@ -52,7 +55,9 @@ class _HomePageState extends State<HomePage> {
     MovieList(movies:_nowPlayingmovies, name:"Now Playing"),
     MovieList(movies:_topRatedmovies,name: "Top Rated"),
     MovieList(movies:_upCommingmovies,name:"Up Comming"),
-    MyMovieList()
+    MyMovieList(),
+    SearchMovie(),
+
   ];
 
  
@@ -95,8 +100,12 @@ class _HomePageState extends State<HomePage> {
           title: Text('Up Comming',style: TextStyle(color: Colors.indigo)),
         ),
         new BottomNavigationBarItem(
-           icon: Icon(Icons.supervised_user_circle,color: Colors.indigo,),
+           icon: Icon(Icons.bookmark,color: Colors.indigo,),
           title: Text('My Movie',style: TextStyle(color: Colors.indigo)),
+        ),
+        new BottomNavigationBarItem(
+           icon: Icon(Icons.search,color: Colors.indigo,),
+          title: Text('Search',style: TextStyle(color: Colors.indigo)),
         )
       ],
     ),
