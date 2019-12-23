@@ -3,16 +3,17 @@ import 'package:movies/views/movie/list_title.dart';
 import 'movie_cell.dart';
 import 'movie_detail.dart';
 
+
 class MovieList extends StatelessWidget {
-  var movies;
-  var name;
-  MovieList(this.movies,this.name);
+  
+  final Color mainColor = Colors.black;
+  final name;
+  final movies;
+  MovieList({this.movies,this.name}); 
 
   @override
   Widget build(BuildContext context) {
     return Container(
-     
-  
         child:  Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[

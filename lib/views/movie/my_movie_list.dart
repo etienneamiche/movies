@@ -1,12 +1,9 @@
 import 'package:movies/models/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/models/user.dart';
-import 'package:movies/views/movie/movie_cell.dart';
-import 'package:movies/views/movie/movie_list.dart';
 import 'package:provider/provider.dart';
 import 'package:movies/services/database.dart';
 
-import 'list_title.dart';
 
 class MyMovieList extends StatefulWidget {
   
@@ -21,7 +18,7 @@ class MyMovieListState extends State<MyMovieList> {
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
     final image_url = 'https://image.tmdb.org/t/p/w500/';
-
+    
     //final list = Provider.of<List<Movie>>(context)??[];
     //print("movie firebase="+list.toString());
     return StreamBuilder<List<Movie>>(
